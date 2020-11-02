@@ -14,10 +14,10 @@ public static void main(String[] args) throws Exception {
     }
 ```
 Nhận được exception như dưới:
-<img src="https://raw.githubusercontent.com/trungthiennguyen/CTF-Writeup/main/ASCIS-2020-Quals/RMI-v2/image_2020-11-02_17-29-08.png">
+<img src="https://raw.githubusercontent.com/trungthiennguyen/CTF-Writeup/main/ASCIS-2020-Quals/RMI-v2/vul1.png">
 Dựa vào đây biết được tác giả đã đổi biến static final serialVersionUID thành -1333713373713373737L.
 # Step 2:
 Sử dụng java reflection để thay đổi biến static final lại thành -1333713373713373737L là xong.
-<img src="https://raw.githubusercontent.com/trungthiennguyen/CTF-Writeup/main/ASCIS-2020-Quals/RMI-v2/vul1.png">
+<img src="https://raw.githubusercontent.com/trungthiennguyen/CTF-Writeup/main/ASCIS-2020-Quals/RMI-v2/image_2020-11-02_17-29-08.png">
 # Note:
 Sau khi bruteforce class của ysoserial thì còn có thể sử dụng CommonsCollections5
