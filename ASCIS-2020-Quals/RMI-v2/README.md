@@ -1,5 +1,3 @@
-# Introduce:
-Bài này mình viết một các bước khai thác mà mình và một người anh cựu sinh viên cùng nhau làm.
 # Step 1:
 Dựa vào hint của tác giả với blog <a href="https://mogwailabs.de/en/blog/2019/03/attacking-java-rmi-services-after-jep-290/">này</a> có thể sử dụng gadget CommonsCollections6 để khai thác. Chỉnh sửa lại client lại 1 chút để gửi payload.
 
