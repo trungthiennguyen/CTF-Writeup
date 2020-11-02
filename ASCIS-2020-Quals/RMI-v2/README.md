@@ -19,7 +19,7 @@ Sử dụng java reflection để thay đổi biến static final lại thành -
 <img src="https://raw.githubusercontent.com/trungthiennguyen/CTF-Writeup/main/ASCIS-2020-Quals/RMI-v2/image_2020-11-02_17-29-08.png">
 # Note:
 Sau khi bruteforce class của ysoserial thì còn có thể sử dụng CommonsCollections5
-# Explaint
+# Explain
 * Dự vào writeup bài 1 của <a href="https://github.com/vinhjaxt/CTF-writeups/issues/2">Vịnh</a> thì ta biết được để làm v2 trước tiên phải bruteforce class lấy trong ysoserial. Để bruteforce thì ta sẽ sử dụng GadgetProbe để tìm các classpath có tồn tại trên server, nếu không có sẽ đẩy ra ClassNotFoundException và không có DNS request, nếu có sẽ có DNS trả về.
 * Lần lượt bỏ các classpath của từng gadget vào, mình và một người anh cựu sinh viên chung trường - Mr.S tìm được có 3 gadget trong ysoserial có đủ tất cả các classpath trả DNS về là URLDNS, CommonsCollections5, CommonsCollections6. Bọn mình chỉ fuzz tới đây đã thấy có đủ điều kiện để exploit rồi nên không fuzz tiếp mà bỏ gadget vào chạy luôn.
 * Sau khi bỏ gadget vào client và gửi cho server như trên, thì bọn mình thu được InvalidClassExeption như hình trên. Trong Exeption có ghi 2 serialVersionUID của class InvokerTransformer, và khi kiểm tra thì biến static final serialVersionUID -86533...688 đó nằm trong class InvokerTransformer của mình. Từ đó mình khá chắc là serialVersionUID -1337... còn lại là nằm trên server. Việc của mình chỉ cần thay đổi biến này thành UID như trên server là xong.
